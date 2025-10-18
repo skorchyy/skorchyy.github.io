@@ -1,1 +1,246 @@
-abc
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Diana Kurkov – Portfolio</title>
+
+<!-- Fonts chosen to match the prototype’s look -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg-top: #f3cfc2;          /* slightly darker peach for top/bottom */
+    --bg-mid: #f7dacd;          /* lighter band through the middle */
+    --ink: #7c3e31;             /* warm brown-red for headings */
+    --ink-2: #a94e3d;           /* accent text */
+    --body: #5e524c;            /* body copy gray-brown */
+    --btn: #c55245;             /* brick red button */
+    --btn-dark: #a94133;        /* deeper edge for bevel */
+    --btn-text: #ffdfc9;        /* warm cream text */
+    --line: rgba(207,106,86,.45); /* “pencil” underline tint */
+    --card: rgba(255,255,255,.30);
+    --shadow: 0 14px 24px rgba(87,45,33,.18);
+    --container-w: min(1020px, 92vw);
+  }
+
+  html, body {
+    height: 100%;
+  }
+  body{
+    margin:0;
+    color:var(--body);
+    font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    line-height:1.65;
+
+    /* Subtle darker-at-top-and-bottom gradient + faint vignette */
+    background:
+      radial-gradient(120% 60% at 50% -10%, rgba(0,0,0,.05), rgba(0,0,0,0) 60%) no-repeat,
+      radial-gradient(120% 60% at 50% 110%, rgba(0,0,0,.06), rgba(0,0,0,0) 60%) no-repeat,
+      linear-gradient(to bottom, var(--bg-top) 0%, var(--bg-mid) 18%, var(--bg-mid) 82%, var(--bg-top) 100%);
+    background-attachment: fixed;
+  }
+
+  .wrap{
+    width: var(--container-w);
+    margin: 0 auto;
+    position: relative;
+    padding: clamp(18px, 3vw, 28px);
+  }
+
+  /* Title */
+  .title{
+    font-family: 'Cinzel Decorative', serif;
+    color: var(--ink);
+    font-weight:700;
+    font-size: clamp(46px, 6.5vw, 76px); /* matches big ornamental style */
+    letter-spacing: .02em;
+    margin: 36px 0 8px;
+    text-align:left;
+    position: relative;
+  }
+  .title::after{
+    content:"";
+    display:block;
+    height:6px;
+    margin-top:12px;
+    background:
+      linear-gradient(to right, var(--ink) 0 24%, rgba(0,0,0,0) 24% 26%, var(--ink) 26% 100%);
+    opacity:.85;
+  }
+
+  /* Section Headings (italic, shaded underline) */
+  .section-head{
+    color: var(--ink-2);
+    font-weight: 600;
+    font-style: italic;
+    font-size: clamp(28px, 3.8vw, 44px);
+    letter-spacing:.02em;
+    margin: 42px 0 8px;
+    position: relative;
+  }
+  .section-head::after{
+    /* pencil / pastel shaded rule */
+    content:"";
+    display:block;
+    height:3px;
+    margin-top:10px;
+    background: linear-gradient(
+      to right,
+      rgba(214,108,81,.00) 0%,
+      var(--line) 6%,
+      var(--line) 60%,
+      rgba(214,108,81,.00) 96%
+    );
+    box-shadow:
+      0 1px 0 rgba(164,76,62,.25),
+      0 2px 0 rgba(164,76,62,.12);
+  }
+
+  p{
+    max-width: 70ch;
+    margin: 0 0 22px;
+    font-size: 16.5px; /* body size to match screenshot */
+  }
+
+  /* Two-column experience table */
+  .xp{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(14px, 2.2vw, 26px) 56px;
+    max-width: 100%;
+    margin-top: 16px;
+  }
+  .xp-row{
+    display: contents;
+  }
+  .xp .left, .xp .right{
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(164,76,62,.22);
+  }
+
+  /* Button row wrapper to avoid “loose” buttons */
+  .btn-row{
+    display:flex;
+    gap: 42px;
+    flex-wrap: wrap;
+    align-items:center;
+    margin: 26px 0 6px;
+  }
+
+  .btn{
+    display:inline-block;
+    background: linear-gradient(#cb5749, #b8473a);
+    color: var(--btn-text);
+    text-decoration:none;
+    font-weight:600;
+    letter-spacing:.04em;
+    font-size: 18px;
+    padding: 12px 22px;
+    border-radius: 8px;
+    border: 1px solid var(--btn-dark);
+    box-shadow:
+      inset 0 2px 0 rgba(255,255,255,.25),
+      0 8px 14px rgba(75,32,22,.22);
+    position: relative;
+  }
+  .btn em{
+    font-style: italic;
+    font-weight: 600;
+    border-bottom: 2px solid rgba(255, 216, 190, .8);
+    padding-bottom: 2px;
+  }
+  .btn:active{ transform: translateY(1px); }
+
+  /* Footer */
+  footer{
+    text-align:center;
+    color: rgba(92,74,67,.80);
+    font-size: 13.5px;
+    padding: 40px 0 18px;
+  }
+
+  /* Corner citrus (absolute, behind content) */
+  .citrus{
+    position: fixed;
+    pointer-events:none;
+    z-index: 0;
+    filter: drop-shadow(0 12px 22px rgba(0,0,0,.12));
+  }
+  .citrus.tl{ left:-18px; top:-18px; width: 220px; transform: rotate(-7deg); }
+  .citrus.tr{ right:-22px; top:-12px; width: 220px; transform: rotate(9deg); }
+  .citrus.bl{ left:-28px; bottom:-24px; width: 240px; transform: rotate(-6deg); }
+  .citrus.br{ right:-24px; bottom:-34px; width: 260px; transform: rotate(8deg); }
+
+  /* Ensure content is above images */
+  .content{ position: relative; z-index: 1; }
+
+  /* Contact headline */
+  .contact-head{
+    text-align:center;
+    font-style: italic;
+    color: var(--ink-2);
+    font-weight: 600;
+    letter-spacing:.02em;
+    margin-top: 56px;
+    font-size: clamp(28px, 3.6vw, 42px);
+  }
+
+  /* Narrow screens */
+  @media (max-width: 720px){
+    .title{ text-align:center; }
+    .title::after{ margin-left:auto; margin-right:auto; width: 92%; }
+    .xp{ grid-template-columns: 1fr; }
+    .btn-row{ justify-content:center; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Corner art (use your four PNGs) -->
+  <img class="citrus tl" src="img/watercolour-piece-sliced-cut-orange-fruit-hand-painted-illustration-png_1.png" alt="">
+  <img class="citrus tr" src="img/watercolour-piece-sliced-cut-orange-fruit-hand-painted-illustration-png.png" alt="">
+  <img class="citrus bl" src="img/watercolor-fresh-orange-fruit-hand-drawing-painted-illustration-with-composition-png.png" alt="">
+  <img class="citrus br" src="img/watercolour-piece-sliced-cut-orange-fruit-with-juice-drip-hand-painted-illustration-png_2.png" alt="">
+
+  <main class="wrap content">
+    <h1 class="title">Diana Kurkov’s Portfolio</h1>
+
+    <section>
+      <h2 class="section-head">About Me</h2>
+      <p>I’m a Computer &amp; Information Technology student at Purdue University (graduating December 2025) with a passion for AI, automation, and data-driven problem solving. Through internships and consulting, I’ve designed AI-powered workflows, integrated LLMs into CRM systems, and delivered measurable results like faster lead response times, higher booking rates, and reduced manual workloads.</p>
+
+      <div class="btn-row" style="margin-top:28px;">
+        <a class="btn" href="projects.html"><em>Projects</em></a>
+        <a class="btn" href="https://drive.google.com/file/d/1_kFauyCVtm0AP41O1pYjRpa9xZi1-2-9/view?usp=sharing" target="_blank" rel="noopener"><em>Resume</em></a>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-head">Experience</h2>
+
+      <div class="xp">
+        <!-- row 1 -->
+        <div class="left">AiToLeads</div>
+        <div class="right">AI Solutions Consultant Contractor</div>
+
+        <!-- row 2 -->
+        <div class="left">BEE Window</div>
+        <div class="right">AI &amp; CRM Systems Intern</div>
+
+        <!-- row 3 -->
+        <div class="left" style="border-bottom:1px solid rgba(164,76,62,.22);">Purple Ribbon Office Solutions</div>
+        <div class="right" style="border-bottom:1px solid rgba(164,76,62,.22);">Data Entry Clerk</div>
+      </div>
+    </section>
+
+    <h2 class="contact-head">Contact Me!</h2>
+    <div class="btn-row" style="justify-content:center; margin-top:18px;">
+      <a class="btn" href="mailto:you@example.com"><em>Email</em></a>
+      <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noopener"><em>LinkedIn</em></a>
+    </div>
+
+    <footer>© 2025 Diana Kurkov. All rights reserved</footer>
+  </main>
+</body>
+</html>

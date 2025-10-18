@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Diana Kurkov – Projects</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Montserrat:ital,wght@0,400;0,600;1,600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg-top: #f3cfc2;
+    --bg-mid: #f7dacd;
+    --ink: #7c3e31;
+    --ink-2: #a94e3d;
+    --body: #5e524c;
+    --btn: #c55245;
+    --btn-dark: #a94133;
+    --btn-text: #ffdfc9;
+    --line: rgba(207,106,86,.45);
+    --container-w: min(1020px, 92vw);
+  }
+  html, body{ height:100%; }
+  body{
+    margin:0;
+    color:var(--body);
+    font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+    background:
+      radial-gradient(120% 60% at 50% -10%, rgba(0,0,0,.05), rgba(0,0,0,0) 60%) no-repeat,
+      radial-gradient(120% 60% at 50% 110%, rgba(0,0,0,.06), rgba(0,0,0,0) 60%) no-repeat,
+      linear-gradient(to bottom, var(--bg-top) 0%, var(--bg-mid) 18%, var(--bg-mid) 82%, var(--bg-top) 100%);
+    background-attachment: fixed;
+    line-height:1.65;
+  }
+  .wrap{
+    width: var(--container-w);
+    margin: 0 auto;
+    position: relative;
+    padding: clamp(18px, 3vw, 28px);
+  }
+
+  .title{
+    font-family: 'Cinzel Decorative', serif;
+    color: var(--ink);
+    font-weight:700;
+    font-size: clamp(46px, 6.2vw, 72px);
+    letter-spacing: .02em;
+    margin: 36px 0 12px;
+  }
+  .title::after{
+    content:"";
+    display:block;
+    height:6px;
+    margin-top:12px;
+    background:
+      linear-gradient(to right, var(--ink) 0 24%, rgba(0,0,0,0) 24% 26%, var(--ink) 26% 100%);
+    opacity:.85;
+  }
+
+  .section-head{
+    color: var(--ink-2);
+    font-weight: 600;
+    font-style: italic;
+    font-size: clamp(26px, 3.5vw, 40px);
+    letter-spacing:.02em;
+    margin: 32px 0 4px;
+  }
+  .section-head::after{
+    content:"";
+    display:block;
+    height:3px;
+    margin-top:10px;
+    background: linear-gradient(to right,
+      rgba(214,108,81,0) 0%, var(--line) 6%, var(--line) 70%, rgba(214,108,81,0) 96%);
+    box-shadow: 0 1px 0 rgba(164,76,62,.25), 0 2px 0 rgba(164,76,62,.12);
+  }
+
+  h3{
+    font-weight:600; margin: 18px 0 6px; color: var(--body);
+  }
+  p{ max-width: 75ch; margin: 0 0 16px; font-size: 16.5px; }
+
+  .btn-row{
+    display:flex; gap: 38px; flex-wrap: wrap; align-items:center;
+    margin: 18px 0 6px;
+  }
+  .btn{
+    display:inline-block;
+    background: linear-gradient(#cb5749, #b8473a);
+    color: var(--btn-text);
+    text-decoration:none;
+    font-weight:600;
+    letter-spacing:.04em;
+    font-size: 17.5px;
+    padding: 11px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--btn-dark);
+    box-shadow: inset 0 2px 0 rgba(255,255,255,.25), 0 8px 14px rgba(75,32,22,.22);
+  }
+  .btn em{ font-style: italic; border-bottom:2px solid rgba(255,216,190,.8); padding-bottom:2px; }
+  .center{ text-align:center; }
+
+  .contact-head{
+    text-align:center;
+    font-style: italic;
+    color: var(--ink-2);
+    font-weight: 600;
+    letter-spacing:.02em;
+    margin-top: 42px;
+    font-size: clamp(27px, 3.3vw, 40px);
+  }
+
+  footer{
+    text-align:center;
+    color: rgba(92,74,67,.80);
+    font-size: 13.5px;
+    padding: 34px 0 18px;
+  }
+
+  .citrus{
+    position: fixed;
+    pointer-events:none;
+    z-index: 0;
+    filter: drop-shadow(0 12px 22px rgba(0,0,0,.12));
+  }
+  .citrus.tl{ left:-18px; top:-18px; width: 220px; transform: rotate(-7deg); }
+  .citrus.tr{ right:-22px; top:-12px; width: 220px; transform: rotate(9deg); }
+  .citrus.bl{ left:-28px; bottom:-24px; width: 240px; transform: rotate(-6deg); }
+  .citrus.br{ right:-24px; bottom:-34px; width: 260px; transform: rotate(8deg); }
+
+  .content{ position:relative; z-index:1; }
+
+  @media (max-width: 720px){
+    .btn-row{ justify-content:center; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- Corner art -->
+  <img class="citrus tl" src="img/watercolour-piece-sliced-cut-orange-fruit-hand-painted-illustration-png_1.png" alt="">
+  <img class="citrus tr" src="img/watercolour-piece-sliced-cut-orange-fruit-hand-painted-illustration-png.png" alt="">
+  <img class="citrus bl" src="img/watercolor-fresh-orange-fruit-hand-drawing-painted-illustration-with-composition-png.png" alt="">
+  <img class="citrus br" src="img/watercolour-piece-sliced-cut-orange-fruit-with-juice-drip-hand-painted-illustration-png_2.png" alt="">
+
+  <main class="wrap content">
+    <h1 class="title">Diana Kurkov’s Projects</h1>
+
+    <!-- Project 1 -->
+    <section>
+      <h2 class="section-head">Handwritten Digit Recognition</h2>
+      <h3>What does the code do?</h3>
+      <p>Loads MNIST, trains a dense baseline model and a Convolutional Neural Network (CNN), evaluates both on the test set, and prints their accuracy.</p>
+      <h3>Libraries Used:</h3>
+      <p>TensorFlow/Keras<br>MNIST (handwritten digit dataset)<br>NumPy</p>
+      <div class="btn-row">
+        <a class="btn" href="https://github.com/skorchyy/HandwrittenDigitRecon"><em>Source Code</em></a>
+      </div>
+    </section>
+
+    <!-- Project 2 -->
+    <section>
+      <h2 class="section-head">Data4Good 2024</h2>
+      <h3>What does the code do?</h3>
+      <p>The script builds a full pipeline to process survey responses (TAPS seminar feedback), clean/translate text answers, categorize them, and then train a machine learning model to predict labels on new survey data.</p>
+      <h3>Libraries Used:</h3>
+      <p>pandas<br>langdetect<br>predictionguard<br>scikit-learn</p>
+      <div class="btn-row">
+        <a class="btn" href="https://github.com/skorchyy/Data4Good2024"><em>Source Code</em></a>
+      </div>
+    </section>
+
+    <h2 class="contact-head">Contact Me!</h2>
+    <div class="btn-row" style="justify-content:center;">
+      <a class="btn" href="mailto:you@example.com"><em>Email</em></a>
+      <a class="btn" href="https://www.linkedin.com/in/diana-k-898137279/" target="_blank" rel="noopener"><em>LinkedIn</em></a>
+    </div>
+
+    <div class="center" style="margin-top:22px;">
+      <a class="btn" href="index.html"><em>Back to Main Page</em></a>
+    </div>
+
+    <footer>© 2025 Diana Kurkov. All rights reserved</footer>
+  </main>
+</body>
+</html>
